@@ -8,10 +8,9 @@
 
     <!-- Login progress -->
 
-    <Button android:id="@+id/log_in" style="?android:textAppearanceSmall"
+    <Button android:id="@+id/log_in"
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:text="LOG IN"
-        android:textStyle="bold"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -49,32 +48,33 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="WALL STREET"
-        android:id="@+id/textView"
+        android:id="@+id/wallStreet"
         android:textIsSelectable="false"
-        android:textSize="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp" />
+        android:textSize="45dp"
+        android:textColor="#ff15c432"
+        android:layout_above="@+id/fantasy"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="FANTASY LEAGUE"
-        android:id="@+id/textView3"
-        android:textSize="30dp"
-        android:layout_below="@+id/textView"
+        android:text="FANTASY"
+        android:id="@+id/fantasy"
+        android:textSize="50dp"
+        android:textColor="#FF15C432"
+        android:textColorHighlight="#ff18b312"
+        android:layout_above="@+id/email"
         android:layout_centerHorizontal="true" />
 
     <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/login_progress"
-        android:layout_above="@+id/email"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:layout_below="@+id/log_in"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 

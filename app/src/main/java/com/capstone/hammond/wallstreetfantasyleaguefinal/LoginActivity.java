@@ -9,6 +9,7 @@ import android.content.CursorLoader;
 import android.content.Loader;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.AsyncTask;
 
@@ -48,6 +49,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Typeface mTypeFace = Typeface.createFromAsset(getAssets(),"SFSportsNight.ttf");
+
+        TextView mTextView1 = (TextView)findViewById(R.id.wallStreet);
+        mTextView1.setTypeface(mTypeFace);
+
+        TextView mTextView2 = (TextView)findViewById(R.id.fantasy);
+        mTextView2.setTypeface(mTypeFace);
 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
