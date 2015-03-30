@@ -26,15 +26,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".HomeScreenActivity"
-            android:label="Home" >
+            android:name=".NavDrawer"
+            android:label="@string/title_activity_nav_drawer" >
             <intent-filter>
-                <action android:name="HomeScreenActivity" />
+                <action android:name="NavDrawer" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>
 
 </manifest>
-
