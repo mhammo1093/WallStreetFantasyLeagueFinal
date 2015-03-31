@@ -57,6 +57,9 @@ public class NavDrawer extends ActionBarActivity
             case 2:
                 fragmentObject = new AccountFragment();
                 break;
+            case 3:
+                fragmentObject = new SignOutFragment();
+                break;
         }
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();

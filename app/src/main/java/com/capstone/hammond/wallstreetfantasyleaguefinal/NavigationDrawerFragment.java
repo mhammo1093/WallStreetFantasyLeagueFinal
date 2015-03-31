@@ -105,6 +105,7 @@ public class NavigationDrawerFragment extends Fragment {
                         "Home",
                         "League",
                         "Account",
+                        "Sign Out",
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
