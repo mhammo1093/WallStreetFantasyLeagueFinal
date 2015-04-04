@@ -51,9 +51,10 @@
         android:id="@+id/wallStreet"
         android:textIsSelectable="false"
         android:textSize="45dp"
-        android:textColor="#99CC00"
-        android:layout_above="@+id/fantasy"
-        android:layout_centerHorizontal="true" />
+        android:textColor="#388E3C"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,17 +63,16 @@
         android:text="FANTASY"
         android:id="@+id/fantasy"
         android:textSize="50dp"
-        android:textColor="#99CC00"
-        android:layout_above="@+id/email"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="26dp" />
+        android:textColor="#388E3C"
+        android:layout_below="@+id/wallStreet"
+        android:layout_centerHorizontal="true" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/login_progress"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_above="@+id/sign_up"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp" />
