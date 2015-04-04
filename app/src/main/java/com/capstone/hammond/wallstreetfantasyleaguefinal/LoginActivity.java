@@ -246,7 +246,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String mEmail;
+        public final String mEmail;
         private final String mPassword;
 
         UserLoginTask(String email, String password) {
@@ -312,6 +312,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             showProgress(false);
             if (success) {
                 finish();
+                UserLoginInfo.userEmail = mEmail;
                 startActivity(new Intent("NavDrawer"));
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
