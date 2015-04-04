@@ -257,23 +257,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         @Override
         protected Boolean doInBackground(Void... params) {
 
-            try {
-                Class.forName("oracle.jdbc.driver.OracleDriver");
-            } catch (ClassNotFoundException e) {
-                return false;
-            }
-
-            String dbUrl = "jdbc:oracle:thin:@141.216.24.31:1521:fsdb";
-            String dbUser = "fsuser";
-            String dbPassword = "fsuser";
-            oracle.jdbc.OracleConnection conn = null;
-
-            try {
-                conn = (oracle.jdbc.OracleConnection)
-                        java.sql.DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            } catch (SQLException e) {
-
-            }
+            Connection conn = ConnectionManager.getConnection();
 
             Statement st = null;
 

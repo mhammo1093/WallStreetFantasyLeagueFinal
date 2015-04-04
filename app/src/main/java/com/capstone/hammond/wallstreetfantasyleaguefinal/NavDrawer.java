@@ -25,7 +25,7 @@ public class NavDrawer extends ActionBarActivity
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
-    private CharSequence mTitle;
+    public CharSequence mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class NavDrawer extends ActionBarActivity
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
+
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
@@ -49,15 +49,19 @@ public class NavDrawer extends ActionBarActivity
 
         switch(position) {
             case 0:
+                mTitle = "Home";
                 fragmentObject = new HomeFragment();
                 break;
             case 1:
+                mTitle = "League";
                 fragmentObject = new LeagueFragment();
                 break;
             case 2:
+                mTitle = "Account";
                 fragmentObject = new AccountFragment();
                 break;
             case 3:
+                mTitle = "Sign Out";
                 fragmentObject = new SignOutFragment();
                 break;
         }
