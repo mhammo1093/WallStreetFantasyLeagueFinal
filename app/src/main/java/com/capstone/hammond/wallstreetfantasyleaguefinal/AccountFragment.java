@@ -23,11 +23,11 @@ public class AccountFragment extends Fragment {
         // initialize your views
 
         TextView mTextView1 = (TextView)view.findViewById(R.id.user_name);
-        mTextView1.setText(UserLoginInfo.fName + " " + UserLoginInfo.lName);
+        mTextView1.setText("Name: " + UserLoginInfo.fName + " " + UserLoginInfo.lName);
 
 
         TextView mTextView2 = (TextView)view.findViewById(R.id.user_email);
-        mTextView2.setText(UserLoginInfo.userEmail);
+        mTextView2.setText("Email: " + UserLoginInfo.userEmail);
 
 
     }

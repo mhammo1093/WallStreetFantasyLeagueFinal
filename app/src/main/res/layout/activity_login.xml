@@ -40,6 +40,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginBottom="68dp"
         android:layout_alignRight="@+id/log_in"
         android:layout_alignEnd="@+id/log_in" />
 
@@ -73,9 +74,51 @@
         android:layout_height="wrap_content"
         android:id="@+id/login_progress"
         android:visibility="gone"
-        android:layout_above="@+id/sign_up"
+        android:layout_below="@+id/log_in"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp" />
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="We&apos;re on... "
+        android:id="@+id/textView"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/fantasy"
+        android:layout_alignStart="@+id/fantasy" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/instagram_icon"
+        android:src="@mipmap/instagram"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/twitter_icon"
+        android:layout_alignTop="@+id/twitter_icon"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/twitter_icon"
+        android:src="@mipmap/twitter"
+        android:layout_alignTop="@+id/facebook_icon"
+        android:layout_toRightOf="@+id/facebook_icon"
+        android:layout_toEndOf="@+id/facebook_icon"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/facebook_icon"
+        android:src="@mipmap/facebook"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_alignTop="@+id/textView"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 
