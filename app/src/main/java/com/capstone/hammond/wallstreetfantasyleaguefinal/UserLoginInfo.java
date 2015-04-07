@@ -1,13 +1,13 @@
 package com.capstone.hammond.wallstreetfantasyleaguefinal;
 
+import java.sql.*;
+
 /**
  * Created by Mike on 4/4/2015.
  */
 
-public class UserLoginInfo extends LoginActivity {
+public class UserLoginInfo {
     public static String userEmail;
-
-    public UserLoginInfo(String mEmail) {
-        String userEmail = mEmail;
-    }
+    public static String fName;
+    public static String lName;
 }

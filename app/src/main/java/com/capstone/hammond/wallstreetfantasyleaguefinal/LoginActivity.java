@@ -287,8 +287,12 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     while (resultSet.next()) {
                         counter++;
                         try {
-                            if (mPassword.equals(resultSet.getString("password")))
+                            if (mPassword.equals(resultSet.getString("password"))) {
+                                UserLoginInfo.userEmail = mEmail;
+                                UserLoginInfo.fName = resultSet.getString("firstname");
+                                UserLoginInfo.lName = resultSet.getString("lastname");
                                 return (true);
+                            }
                             else
                                 return (false);
                         } catch (SQLException e3) {
@@ -302,6 +306,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 e4.printStackTrace();
             }
 
+
+
             // TODO: register the new account here.
             return true;
         }
@@ -312,7 +318,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             showProgress(false);
             if (success) {
                 finish();
-                UserLoginInfo.userEmail = mEmail;
                 startActivity(new Intent("NavDrawer"));
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

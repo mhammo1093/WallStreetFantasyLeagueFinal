@@ -53,11 +53,11 @@ public class NavDrawer extends ActionBarActivity
                 fragmentObject = new HomeFragment();
                 break;
             case 1:
-                mTitle = "League";
+                mTitle = (UserLoginInfo.fName + "'s Leagues");
                 fragmentObject = new LeagueFragment();
                 break;
             case 2:
-                mTitle = "Account";
+                mTitle = (UserLoginInfo.fName + "'s Account");
                 fragmentObject = new AccountFragment();
                 break;
             case 3:

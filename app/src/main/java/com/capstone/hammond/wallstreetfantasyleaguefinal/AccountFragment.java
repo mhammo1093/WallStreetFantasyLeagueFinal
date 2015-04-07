@@ -20,9 +20,16 @@ public class AccountFragment extends Fragment {
 
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
-        // initialise your views
-        TextView mTextView1 = (TextView)view.findViewById(R.id.user_email);
-        mTextView1.setText(UserLoginInfo.userEmail);
+        // initialize your views
+
+        TextView mTextView1 = (TextView)view.findViewById(R.id.user_name);
+        mTextView1.setText(UserLoginInfo.fName + " " + UserLoginInfo.lName);
+
+
+        TextView mTextView2 = (TextView)view.findViewById(R.id.user_email);
+        mTextView2.setText(UserLoginInfo.userEmail);
+
+
     }
 
 }
