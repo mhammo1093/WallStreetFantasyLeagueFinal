@@ -57,6 +57,9 @@
         android:layout_marginBottom="49dp"
         android:layout_above="@+id/user_name"
         android:layout_centerHorizontal="true"
-        android:background="#ffffffff" />
+        android:background="#ffffffff"
+        android:elevation="5dp"
+        android:minHeight="96dp"
+        android:minWidth="96dp" />
 
 </RelativeLayout>
