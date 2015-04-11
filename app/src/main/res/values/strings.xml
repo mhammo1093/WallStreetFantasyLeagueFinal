@@ -17,7 +17,10 @@
 
     <string-array name="sections">
         <item>"  Home"</item>
-        <item>"  Leagues"</item>
+        <item>"  Weekly Match"</item>
+        <item>"  Standings"</item>
+        <item>"  Schedule"</item>
+        <item>"  Create / Join League"</item>
         <item>"  Account</item>
         <item>"  Sign Out</item>
     </string-array>
@@ -26,10 +29,16 @@
         <item>Section T2</item>
         <item>Section T3</item>
         <item>Section T4</item>
+        <item>Section T5</item>
+        <item>Section T6</item>
+        <item>Section T7</item>
     </string-array>
     <string-array name="section_icons">
         <item>@drawable/ic_home</item>
         <item>@drawable/ic_people</item>
+        <item>@drawable/ic_standings</item>
+        <item>@drawable/ic_calendar</item>
+        <item>@drawable/ic_league</item>
         <item>@drawable/ic_person</item>
         <item>@drawable/ic_power</item>
     </string-array>

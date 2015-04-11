@@ -8,12 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class LeagueFragment extends Fragment {
+public class WeeklyMatchFragment extends Fragment {
     View rootview;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootview = inflater.inflate(R.layout.fragment_league, container, false);
+        rootview = inflater.inflate(R.layout.fragment_weekly_match, container, false);
         return rootview;
 
     }
