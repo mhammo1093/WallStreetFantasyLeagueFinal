@@ -16,8 +16,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="sections">
-        <item>"  Home"</item>
+        <item>"  Current Market Trends"</item>
         <item>"  Weekly Match"</item>
+        <item>"  Trade</item>
         <item>"  Standings"</item>
         <item>"  Schedule"</item>
         <item>"  Create / Join League"</item>
@@ -32,10 +33,12 @@
         <item>Section T5</item>
         <item>Section T6</item>
         <item>Section T7</item>
+        <item>Section T8</item>
     </string-array>
     <string-array name="section_icons">
-        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_trend</item>
         <item>@drawable/ic_people</item>
+        <item>@drawable/ic_money</item>
         <item>@drawable/ic_standings</item>
         <item>@drawable/ic_calendar</item>
         <item>@drawable/ic_league</item>

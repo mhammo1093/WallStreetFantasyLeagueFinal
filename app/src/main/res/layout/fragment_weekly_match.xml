@@ -6,40 +6,50 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.capstone.hammond.wallstreetfantasyleaguefinal.WeeklyMatchFragment">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/btnLogin"
-        android:layout_above="@+id/btnCreateNewLeague"
-        android:layout_alignLeft="@+id/btnCreateNewLeague"
-        android:layout_alignStart="@+id/btnCreateNewLeague"
-        android:layout_alignRight="@+id/btnCreateNewLeague"
-        android:layout_alignEnd="@+id/btnCreateNewLeague" />
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create New League"
-        android:id="@+id/btnCreateNewLeague"
-        android:layout_alignParentBottom="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="VS."
+        android:id="@+id/textView8"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:layout_above="@+id/btnLogin" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Leagues"
-        android:id="@+id/textView9"
+        android:text="User 1"
+        android:id="@+id/user1"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="User 2"
+        android:id="@+id/user2"
+        android:layout_below="@+id/textView8"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/user1_StockInfo"
+        android:layout_below="@+id/user1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/textView8" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/user2_StockInfo"
+        android:layout_below="@+id/user2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

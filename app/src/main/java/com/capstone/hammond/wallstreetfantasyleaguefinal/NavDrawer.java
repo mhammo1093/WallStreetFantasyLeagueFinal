@@ -49,30 +49,34 @@ public class NavDrawer extends ActionBarActivity
 
         switch(position) {
             case 0:
-                mTitle = "Home";
-                fragmentObject = new HomeFragment();
+                mTitle = "Current Market Trends";
+                fragmentObject = new CurrentMarketTrendsFragment();
                 break;
             case 1:
                 mTitle = "Weekly Match";
                 fragmentObject = new WeeklyMatchFragment();
                 break;
             case 2:
+                mTitle = "Trade";
+                fragmentObject = new TradeFragment();
+                break;
+            case 3:
                 mTitle = "Standings";
                 fragmentObject = new StandingsFragment();
                 break;
-            case 3:
+            case 4:
                 mTitle = "Schedule";
                 fragmentObject = new ScheduleFragment();
                 break;
-            case 4:
-                mTitle = "Create/Join League";
+            case 5:
+                mTitle = "Create / Join League";
                 fragmentObject = new CreateJoinLeagueFragment();
                 break;
-            case 5:
+            case 6:
                 mTitle = (UserLoginInfo.fName + "'s Account");
                 fragmentObject = new AccountFragment();
                 break;
-            case 6:
+            case 7:
                 mTitle = "Sign Out";
                 fragmentObject = new SignOutFragment();
                 break;
