@@ -9,19 +9,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.apache.http.util.ByteArrayBuffer;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
-
-import yahoofinance.Stock;
-import yahoofinance.YahooFinance;
-
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class CurrentMarketTrendsFragment extends Fragment {
-    public static String spPriceS;
-    public static String spPercentS;
-    public static String nasdaqPriceS;
-    public static String nasdaqPercentS;
+    TextView spPrice;
+    TextView spPercent;
+    TextView nasdaqPrice;
+    TextView nasdaqPercent;
+    TextView nyPrice;
+    TextView nyPercent;
 
     View rootview;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,68 +38,100 @@ public class CurrentMarketTrendsFragment extends Fragment {
         return rootview;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // do your variables initialisations here except Views!!!
-        String spSymbol = "^GSPC";
-        YahooFinanceTask one = new YahooFinanceTask(spSymbol);
-
-
-    }
-
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView spPrice = (TextView) view.findViewById(R.id.sp_price);
-        spPrice.setText(spPriceS);
-        TextView spPercent = (TextView) view.findViewById(R.id.sp_percent);
-        spPercent.setText(spPercentS);
+        spPrice = (TextView) view.findViewById(R.id.sp_price);
+        spPercent = (TextView) view.findViewById(R.id.sp_percent);
 
-        /*TextView nasdaqPrice = (TextView) view.findViewById(R.id.nasdaq_price);
-        nasdaqPrice.setText(nasdaqPriceS);
-        TextView nasdaqPercent = (TextView) view.findViewById(R.id.nasdaq_percent);
-        nasdaqPercent.setText(nasdaqPercentS);*/
+        nasdaqPrice = (TextView) view.findViewById(R.id.nasdaq_price);
+        nasdaqPercent = (TextView) view.findViewById(R.id.nasdaq_percent);
 
+        nyPrice = (TextView) view.findViewById(R.id.ny_price);
+        nyPercent = (TextView) view.findViewById(R.id.ny_percent);
+
+        try {
+            List<String> resultsS = new Yahoo().execute("^GSPC").get();
+            setResult(spPrice, spPercent, resultsS.get(0), resultsS.get(1), resultsS.get(2));
+            List<String> resultsN = new Yahoo().execute("^IXIC").get();
+            setResult(nasdaqPrice, nasdaqPercent, resultsN.get(0), resultsN.get(1), resultsN.get(2));
+            List<String> resultsD = new Yahoo().execute("^NYA").get();
+            setResult(nyPrice, nyPercent, resultsD.get(0), resultsD.get(1), resultsD.get(2));
+
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
-    public class YahooFinanceTask extends AsyncTask<Void, Void, Void> {
-        public String mSymbol;
-
-        YahooFinanceTask(String symbol) {
-            mSymbol = symbol;
+    public void setResult(TextView textViewOne, TextView textViewTwo, String fstockSymbol, String stockPrice, String fstockChangePercentage) {
+        textViewOne.setText("$" + stockPrice);
+        textViewTwo.setText(fstockChangePercentage + "%");
+        char c = fstockChangePercentage.charAt(0);
+        if(c=='+') {
+            textViewTwo.setTextColor(getResources().getColor(android.R.color.holo_green_light));
         }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            try {
-                Stock stockOne = YahooFinance.get(mSymbol);
-                BigDecimal spPriceBD = stockOne.getQuote().getPrice();
-                CurrentMarketTrendsFragment.spPriceS = spPriceBD.toString();
-                BigDecimal spPercentBD = stockOne.getQuote().getChangeInPercent();
-                CurrentMarketTrendsFragment.spPercentS = spPercentBD.toString();
-
-                /*yahoofinance.Stock stockTwo = YahooFinance.get("^IXIC");
-                BigDecimal nasdaqPriceBD = stockTwo.getQuote().getPrice();
-                HomeFragment.nasdaqPriceS = nasdaqPriceBD.toString();
-                BigDecimal nasdaqPercentBD = stockTwo.getQuote().getChangeInPercent();
-                HomeFragment.nasdaqPercentS = nasdaqPercentBD.toString();*/
-            } catch(Exception e) {
-                return null;
-            }
-            return null;
+        else if(c=='-') {
+            textViewTwo.setTextColor(getResources().getColor(android.R.color.holo_red_light));
         }
-
-
-
     }
-
-
-
-
-
-
-
-
-
 }
+
+    class Yahoo extends AsyncTask<String, Void, List<String>> {
+
+            protected List<String> doInBackground(String... symbols) {
+                try {
+                    URL url;
+
+                    try {
+                        url = new URL(
+                                "http://download.finance.yahoo.com/d/quotes.csv?s="
+                                        + symbols[0] + "&f=nl1p2");
+
+                        InputStream stream = url.openStream();
+
+                        BufferedInputStream bis = new BufferedInputStream(stream);
+                        ByteArrayBuffer baf = new ByteArrayBuffer(50);
+
+                        int current = 0;
+                        while ((current = bis.read()) != -1) {
+                            baf.append((byte) current);
+                        }
+
+                        String stockTxt = new String(baf.toByteArray());
+
+                        String[] tokens = stockTxt.split(",");
+
+                        String stockSymbol = tokens[0];
+                        String stockPrice = tokens[1];
+                        String stockChangePercentage = tokens[2];
+
+                        String fstockSymbol = stockSymbol.substring(1,
+                                stockSymbol.length() - 1);
+                        String fstockChangePercentage = stockChangePercentage
+                                .substring(1, stockChangePercentage.length() - 3);
+
+                        List<String> results = new ArrayList<String>();
+                        results.add(fstockSymbol);
+                        results.add(stockPrice);
+                        results.add(fstockChangePercentage);
+
+                        return results;
+
+
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+        }
+
