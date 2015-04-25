@@ -245,6 +245,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      * the user.
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+        ResultSet resultSet;
+        Statement st;
+        Connection conn;
 
         public final String mEmail;
         private final String mPassword;
@@ -256,34 +259,16 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         @Override
         protected Boolean doInBackground(Void... params) {
-
-            Connection conn = ConnectionManager.getConnection();
-
-            Statement st = null;
-
             try {
-                if(conn!=null)
+                Connection conn = ConnectionManager.getConnection();
+                Statement st = null;
+                if (conn != null)
                     st = conn.createStatement();
-            } catch (SQLException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-
-            ResultSet resultSet = null;
-
-            try {
-                if(st!=null)
-                    resultSet = st.executeQuery("SELECT * FROM userinfo WHERE email='" + mEmail
-                            + "'");
-            } catch (SQLException e2) {
-                // TODO Auto-generated catch block
-                e2.printStackTrace();
-            }
-
-            int counter = 0;
-
-            try {
-                if(resultSet!=null)
+                ResultSet resultSet = null;
+                if (st != null)
+                    resultSet = st.executeQuery("SELECT * FROM userinfo WHERE email='" + mEmail + "'");
+                int counter = 0;
+                if (resultSet != null)
                     while (resultSet.next()) {
                         counter++;
                         try {
@@ -291,10 +276,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                                 UserLoginInfo.userEmail = mEmail;
                                 UserLoginInfo.fName = resultSet.getString("firstname");
                                 UserLoginInfo.lName = resultSet.getString("lastname");
-                                conn.close();
                                 return (true);
-                            }
-                            else
+                            } else
                                 return (false);
                         } catch (SQLException e3) {
                             e3.printStackTrace();
@@ -302,14 +285,21 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     }
                 if (counter == 0)
                     return false;
-            } catch (SQLException e4) {
-                // TODO Auto-generated catch block
-                e4.printStackTrace();
+                // TODO: register the new account here.
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    if(resultSet!=null)
+                        resultSet.close();
+                    if(st!=null)
+                        st.close();
+                    if(conn!=null)
+                        conn.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
             }
-
-
-
-            // TODO: register the new account here.
             return true;
         }
 

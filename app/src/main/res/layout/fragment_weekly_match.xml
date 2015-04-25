@@ -14,7 +14,9 @@
         android:text="VS."
         android:id="@+id/textView8"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,4 +54,24 @@
         android:layout_below="@+id/user2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Bank:"
+        android:id="@+id/bank1"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/user1_StockInfo"
+        android:layout_alignEnd="@+id/user1_StockInfo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Bank:"
+        android:id="@+id/bank2"
+        android:layout_below="@+id/textView8"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

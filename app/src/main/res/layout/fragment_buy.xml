@@ -1,0 +1,182 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:id="@+id/quote">
+
+    <EditText
+        android:id="@+id/setSymbol"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Enter Tick Symbol"
+        android:layout_toLeftOf="@+id/get_quote_button"
+        android:layout_toStartOf="@+id/get_quote_button">
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/get_quote_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Search Stock"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="9dp" />
+
+    <EditText
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/stockSymbolOutput"
+        android:layout_below="@+id/setSymbol"
+        android:hint="Name"
+        android:width="0dp"
+        android:layout_alignRight="@+id/get_quote_button"
+        android:layout_alignEnd="@+id/get_quote_button"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stockChangePriceOutput"
+        android:layout_below="@+id/stockPriceOutput"
+        android:hint="Change"
+
+        android:layout_alignLeft="@+id/stockPriceOutput"
+        android:layout_alignStart="@+id/stockPriceOutput"
+        android:layout_alignRight="@+id/stockPriceOutput"
+        android:layout_alignEnd="@+id/stockPriceOutput" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stockPriceOutput"
+        android:layout_below="@+id/stockSymbolOutput"
+        android:hint="Price"
+        android:layout_alignRight="@+id/stockSymbolOutput"
+        android:layout_alignEnd="@+id/stockSymbolOutput"
+        android:layout_alignLeft="@+id/stockSymbolOutput"
+        android:layout_alignStart="@+id/stockSymbolOutput" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/textView3"
+        android:layout_marginBottom="44dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Stock Name"
+        android:id="@+id/textView8"
+        android:layout_above="@+id/stockPriceOutput"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="StockPrice"
+        android:id="@+id/textView10"
+        android:layout_above="@+id/stockChangePriceOutput"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Change In Price"
+        android:id="@+id/textView11"
+        android:layout_alignBottom="@+id/stockChangePriceOutput"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText7"
+        android:layout_below="@+id/stockChangePriceOutput"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/stockChangePriceOutput"
+        android:layout_alignEnd="@+id/stockChangePriceOutput" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buy"
+        android:id="@+id/btnBuyStock"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Enter Tick Symbol"
+        android:id="@+id/textView12"
+        android:textSize="15dp"
+        android:layout_below="@+id/buyStockName"
+        android:layout_alignLeft="@+id/buySharesAmount"
+        android:layout_alignStart="@+id/buySharesAmount" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buyStockName"
+        android:layout_marginTop="55dp"
+        android:layout_below="@+id/editText7"
+        android:layout_alignLeft="@+id/textView15"
+        android:layout_alignStart="@+id/textView15"
+        android:layout_alignRight="@+id/textView15"
+        android:layout_alignEnd="@+id/textView15" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buySharesAmount"
+        android:layout_below="@+id/textView12"
+        android:layout_alignRight="@+id/buyStockName"
+        android:layout_alignEnd="@+id/buyStockName"
+        android:layout_alignLeft="@+id/buyStockName"
+        android:layout_alignStart="@+id/buyStockName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Enter Share Amount"
+        android:id="@+id/textView13"
+        android:textSize="15dp"
+        android:layout_alignRight="@+id/buySharesAmount"
+        android:layout_alignEnd="@+id/buySharesAmount"
+        android:layout_below="@+id/buySharesAmount"
+        android:layout_alignLeft="@+id/buySharesAmount"
+        android:layout_alignStart="@+id/buySharesAmount" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Purchase Stock"
+        android:id="@+id/textView15"
+        android:layout_below="@+id/editText7"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

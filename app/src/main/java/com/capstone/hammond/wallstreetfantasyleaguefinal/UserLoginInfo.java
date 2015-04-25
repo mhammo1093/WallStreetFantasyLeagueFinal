@@ -10,4 +10,9 @@ public class UserLoginInfo {
     public static String userEmail;
     public static String fName;
     public static String lName;
+    public static float bank;
+    public static int currOpp;
+    public static String oppFName;
+    public static String oppLName;
+    public static float oppBank;
 }
