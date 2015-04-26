@@ -1,6 +1,5 @@
 package com.capstone.hammond.wallstreetfantasyleaguefinal;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,22 +10,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 
 public class WeeklyMatchFragment extends Fragment {
-    Connection conn;
-    ResultSet rs, rs1, rs2;
-    Statement st, st1, st2;
-    TextView user1;
-    TextView user2;
-    TextView bank1;
-    TextView bank2;
-    float oppBank;
-
     View rootview;
 
     @Nullable
@@ -40,25 +32,45 @@ public class WeeklyMatchFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        new MatchDetails().execute((Void)null);
+        try {
+            TextView user1;
+            TextView user2;
+            TextView bank1;
+            TextView bank2;
 
-        user1 = (TextView) view.findViewById(R.id.user1);
-        user1.setText(UserLoginInfo.fName + " " + UserLoginInfo.lName);
-        bank1 = (TextView) view.findViewById(R.id.bank1);
-        bank1.setText("Bank: $" + UserLoginInfo.bank);
-        user2 = (TextView) view.findViewById(R.id.user2);
-        user2.setText(UserLoginInfo.oppFName + " " + UserLoginInfo.oppLName);
-        bank2 = (TextView) view.findViewById(R.id.bank2);
-        bank2.setText("Bank: $" + UserLoginInfo.oppBank);
+            List<String> weeklyMatch = new MatchDetails().execute().get();
+
+            user1 = (TextView) view.findViewById(R.id.player1);
+            user1.setText(UserLoginInfo.fName + " " + UserLoginInfo.lName);
+            bank1 = (TextView) view.findViewById(R.id.bank1);
+            bank1.setText("Bank: $" + weeklyMatch.get(0));
+            user2 = (TextView) view.findViewById(R.id.user2);
+            user2.setText(weeklyMatch.get(1) + " " + weeklyMatch.get(2));
+            bank2 = (TextView) view.findViewById(R.id.bank2);
+            bank2.setText("Bank: $" + weeklyMatch.get(3));
+
+            weeklyMatch = null;
+
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        } catch(ExecutionException e) {
+            e.printStackTrace();
+        }
 
 
     }
 
-    public class MatchDetails extends AsyncTask<Void, Void, Void> {
+    public class MatchDetails extends AsyncTask<Void, Void, List<String>> {
+        List<String> weeklyMatch;
+        Connection conn;
+        ResultSet rs,rs1,rs2;
+        Statement st,st1,st2;
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected List<String> doInBackground(Void... params) {
             try {
+                weeklyMatch = new ArrayList<>();
+                conn = null;
                 conn = ConnectionManager.getConnection();
                 rs = null;
                 st = null;
@@ -68,7 +80,7 @@ public class WeeklyMatchFragment extends Fragment {
                     rs = st.executeQuery("SELECT * FROM L1_STANDINGS WHERE EMAIL = '" + UserLoginInfo.userEmail + "'");
                 if (rs != null)
                     while(rs.next()) {
-                        UserLoginInfo.bank = rs.getFloat("BANK");
+                        weeklyMatch.add(rs.getString("BANK"));
                         UserLoginInfo.currOpp = rs.getInt("CURR_OPP");
                     }
                 st1 = null;
@@ -79,42 +91,58 @@ public class WeeklyMatchFragment extends Fragment {
                     rs1 = st1.executeQuery("SELECT * FROM USERINFO WHERE USERID = '" + UserLoginInfo.currOpp + "'");
                 if (rs1 != null)
                     while(rs1.next()) {
-                        UserLoginInfo.oppFName = rs1.getString("FIRSTNAME");
-                        UserLoginInfo.oppLName = rs1.getString("LASTNAME");
+                        weeklyMatch.add(rs1.getString("FIRSTNAME"));
+                        weeklyMatch.add(rs1.getString("LASTNAME"));
                     }
                 rs2 = null;
                 st2 = null;
                 if (conn != null)
                     st2 = conn.createStatement();
                 if (st2 != null)
-                    rs2 = st.executeQuery("SELECT * FROM L1_Standings WHERE USERID = '" + UserLoginInfo.currOpp + "'");
+                    rs2 = st2.executeQuery("SELECT * FROM L1_Standings WHERE USERID = '" + UserLoginInfo.currOpp + "'");
                 if (rs2 != null)
                     while(rs2.next()) {
-                        UserLoginInfo.oppBank = rs2.getFloat("BANK");
+                        weeklyMatch.add(rs2.getString("BANK"));
                     }
+
+                return weeklyMatch;
+
             } catch (SQLException e) {
                 e.printStackTrace();
-            /*} finally {
-                try{
+            } finally {
+                try {
                     if(rs!=null)
                         rs.close();
                     if(rs1!=null)
                         rs1.close();
+                    if(rs2!=null)
+                        rs2.close();
                     if(st!=null)
                         st.close();
                     if(st1!=null)
                         st1.close();
-                    if(conn!=null)
-                        conn.close();
+                    if(st2!=null)
+                        st2.close();
                 } catch(SQLException e) {
                     e.printStackTrace();
-                }*/
+                }
 
             }
+
             return null;
         }
 
+        @Override
+        protected void onPostExecute(List<String> strings) {
+            super.onPostExecute(strings);
 
+            weeklyMatch = null;
+
+
+
+
+
+        }
     }
 }
 

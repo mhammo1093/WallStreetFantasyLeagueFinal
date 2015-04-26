@@ -15,4 +15,5 @@ public class UserLoginInfo {
     public static String oppFName;
     public static String oppLName;
     public static float oppBank;
+    public static String userID;
 }

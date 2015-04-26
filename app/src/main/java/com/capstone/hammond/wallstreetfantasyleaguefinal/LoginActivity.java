@@ -276,6 +276,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                                 UserLoginInfo.userEmail = mEmail;
                                 UserLoginInfo.fName = resultSet.getString("firstname");
                                 UserLoginInfo.lName = resultSet.getString("lastname");
+                                UserLoginInfo.userID = resultSet.getString("userid");
                                 return (true);
                             } else
                                 return (false);
@@ -294,8 +295,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                         resultSet.close();
                     if(st!=null)
                         st.close();
-                    if(conn!=null)
-                        conn.close();
+
                 } catch(SQLException e) {
                     e.printStackTrace();
                 }
