@@ -53,6 +53,15 @@
                 android:layout_alignStart="@+id/sp"
                 android:paddingBottom="10dp" />
 
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#000000"
+                android:layout_below="@+id/sp_percent"
+                android:layout_marginBottom="14dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,7 +72,8 @@
                 android:layout_alignLeft="@+id/sp"
                 android:layout_alignStart="@+id/sp"
                 android:paddingBottom="10dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:paddingTop="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -87,6 +97,15 @@
                 android:layout_alignStart="@+id/sp"
                 android:paddingBottom="10dp" />
 
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#000000"
+                android:layout_below="@+id/nasdaq_percent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +116,8 @@
                 android:layout_alignLeft="@+id/sp"
                 android:layout_alignStart="@+id/sp"
                 android:paddingBottom="10dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:paddingTop="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -120,6 +140,23 @@
                 android:layout_alignLeft="@+id/sp"
                 android:layout_alignStart="@+id/sp"
                 android:paddingBottom="10dp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#000000"
+                android:layout_below="@+id/ny_percent"
+                android:layout_marginBottom="14dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#000000"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp" />
 
         </RelativeLayout>
 

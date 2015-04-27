@@ -13,22 +13,29 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 
 public class StandingsFragment extends Fragment {
+    private static final NumberFormat percentFormat = NumberFormat.getPercentInstance();
+
     List<Integer> idList = new ArrayList<>();
     List<String> winList = new ArrayList<>();
     List<String> lossList = new ArrayList<>();
     List<String> firstName = new ArrayList<>();
     List<String> lastName = new ArrayList<>();
+    List<String> tieList = new ArrayList<>();
+    List<String> winPercentList = new ArrayList<>();
 
 
     int resultID;
     String resultWins;
     String resultLosses;
+    String resultTies;
+    String resultWP;
     String firstNameS;
     String lastNameS;
 
@@ -52,6 +59,8 @@ public class StandingsFragment extends Fragment {
             lastName = standingsResult.get(1);
             winList = standingsResult.get(2);
             lossList = standingsResult.get(3);
+            tieList = standingsResult.get(4);
+            winPercentList = standingsResult.get(5);
 
             TextView player1;
             TextView player2;
@@ -59,57 +68,66 @@ public class StandingsFragment extends Fragment {
             TextView player4;
             TextView player5;
             TextView player6;
-            TextView player1Win;
-            TextView player2Win;
-            TextView player3Win;
-            TextView player4Win;
-            TextView player5Win;
-            TextView player6Win;
-            TextView player1Loss;
-            TextView player2Loss;
-            TextView player3Loss;
-            TextView player4Loss;
-            TextView player5Loss;
-            TextView player6Loss;
+
+            TextView player1Record;
+            TextView player2Record;
+            TextView player3Record;
+            TextView player4Record;
+            TextView player5Record;
+            TextView player6Record;
+
+            TextView player1WP;
+            TextView player2WP;
+            TextView player3WP;
+            TextView player4WP;
+            TextView player5WP;
+            TextView player6WP;
 
             player1 = (TextView) view.findViewById(R.id.player1);
-            player1.setText(firstName.get(0) + " " + lastName.get(0));
+            player1.setText("1. " + firstName.get(0) + " " + lastName.get(0));
             player2 = (TextView) view.findViewById(R.id.player2);
-            player2.setText(firstName.get(1) + " " + lastName.get(1));
+            player2.setText("2. " + firstName.get(1) + " " + lastName.get(1));
             player3 = (TextView) view.findViewById(R.id.player3);
-            player3.setText(firstName.get(2) + " " + lastName.get(2));
+            player3.setText("3. " + firstName.get(2) + " " + lastName.get(2));
             player4 = (TextView) view.findViewById(R.id.player4);
-            player4.setText(firstName.get(3) + " " + lastName.get(3));
+            player4.setText("4. " + firstName.get(3) + " " + lastName.get(3));
             player5 = (TextView) view.findViewById(R.id.player5);
-            player5.setText(firstName.get(4) + " " + lastName.get(4));
+            player5.setText("5. " + firstName.get(4) + " " + lastName.get(4));
             player6 = (TextView) view.findViewById(R.id.player6);
-            player6.setText(firstName.get(5) + " " + lastName.get(5));
+            player6.setText("6. " + firstName.get(5) + " " + lastName.get(5));
 
-            player1Win = (TextView) view.findViewById(R.id.player1_win);
-            player1Win.setText(winList.get(0));
-            player2Win = (TextView) view.findViewById(R.id.player2_win);
-            player2Win.setText(winList.get(1));
-            player3Win = (TextView) view.findViewById(R.id.player3_win);
-            player3Win.setText(winList.get(2));
-            player4Win = (TextView) view.findViewById(R.id.player4_win);
-            player4Win.setText(winList.get(3));
-            player5Win = (TextView) view.findViewById(R.id.player5_win);
-            player5Win.setText(winList.get(4));
-            player6Win = (TextView) view.findViewById(R.id.player6_win);
-            player6Win.setText(winList.get(5));
+            player1Record = (TextView) view.findViewById(R.id.player1_record);
+            player1Record.setText(winList.get(0) + "-" + lossList.get(0) + "-" + tieList.get(0));
+            player2Record = (TextView) view.findViewById(R.id.player2_record);
+            player2Record.setText(winList.get(1) + "-" + lossList.get(1) + "-" + tieList.get(1));
+            player3Record = (TextView) view.findViewById(R.id.player3_record);
+            player3Record.setText(winList.get(2) + "-" + lossList.get(2) + "-" + tieList.get(2));
+            player4Record = (TextView) view.findViewById(R.id.player4_record);
+            player4Record.setText(winList.get(3) + "-" + lossList.get(3) + "-" + tieList.get(3));
+            player5Record = (TextView) view.findViewById(R.id.player5_record);
+            player5Record.setText(winList.get(4) + "-" + lossList.get(4) + "-" + tieList.get(4));
+            player6Record = (TextView) view.findViewById(R.id.player6_record);
+            player6Record.setText(winList.get(5) + "-" + lossList.get(5) + "-" + tieList.get(5));
 
-            player1Loss = (TextView) view.findViewById(R.id.player1_loss);
-            player1Loss.setText(lossList.get(0));
-            player2Loss = (TextView) view.findViewById(R.id.player2_loss);
-            player2Loss.setText(lossList.get(1));
-            player3Loss = (TextView) view.findViewById(R.id.player3_loss);
-            player3Loss.setText(lossList.get(2));
-            player4Loss = (TextView) view.findViewById(R.id.player4_loss);
-            player4Loss.setText(lossList.get(3));
-            player5Loss = (TextView) view.findViewById(R.id.player5_loss);
-            player5Loss.setText(lossList.get(4));
-            player6Loss = (TextView) view.findViewById(R.id.player6_loss);
-            player6Loss.setText(lossList.get(5));
+            float p1wp = Float.parseFloat(winPercentList.get(0));
+            float p2wp = Float.parseFloat(winPercentList.get(1));
+            float p3wp = Float.parseFloat(winPercentList.get(2));
+            float p4wp = Float.parseFloat(winPercentList.get(3));
+            float p5wp = Float.parseFloat(winPercentList.get(3));
+            float p6wp = Float.parseFloat(winPercentList.get(5));
+
+            player1WP = (TextView) view.findViewById(R.id.player1_wperc);
+            player1WP.setText(percentFormat.format(p1wp));
+            player2WP = (TextView) view.findViewById(R.id.player2_wperc);
+            player2WP.setText(percentFormat.format(p2wp));
+            player3WP = (TextView) view.findViewById(R.id.player3_wperc);
+            player3WP.setText(percentFormat.format(p3wp));
+            player4WP = (TextView) view.findViewById(R.id.player4_wperc);
+            player4WP.setText(percentFormat.format(p4wp));
+            player5WP = (TextView) view.findViewById(R.id.player5_wperc);
+            player5WP.setText(percentFormat.format(p5wp));
+            player6WP = (TextView) view.findViewById(R.id.player6_wperc);
+            player6WP.setText(percentFormat.format(p6wp));
 
             standingsResult = null;
 
@@ -154,6 +172,10 @@ public class StandingsFragment extends Fragment {
                         winList.add(resultWins);
                         resultLosses = rs.getString("LOSSES");
                         lossList.add(resultLosses);
+                        resultTies = rs.getString("TIES");
+                        tieList.add(resultTies);
+                        resultWP = rs.getString("WIN_PERCENT");
+                        winPercentList.add(resultWP);
                     }
 
                 st1 = null;
@@ -240,10 +262,10 @@ public class StandingsFragment extends Fragment {
                 standingsResult.add(lastName);
                 standingsResult.add(winList);
                 standingsResult.add(lossList);
-
+                standingsResult.add(tieList);
+                standingsResult.add(winPercentList);
 
                 return standingsResult;
-
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -278,12 +300,10 @@ public class StandingsFragment extends Fragment {
                     if(st6!=null)
                         st6.close();
 
-
                 } catch(SQLException e) {
                     e.printStackTrace();
                 }
             }
-
 
             return null;
         }

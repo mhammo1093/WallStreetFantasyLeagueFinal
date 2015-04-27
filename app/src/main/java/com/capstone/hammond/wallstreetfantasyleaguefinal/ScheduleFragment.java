@@ -59,7 +59,6 @@ public class ScheduleFragment extends Fragment {
         ResultSet rs,rs1,rs2,rs3,rs4,rs5,rs6;
         Statement st,st1,st2,st3,st4,st5,st6;
         Connection conn;
-        String[] scheduleB;
         int a,b,c,d,e,f,g,h,i,j,k,l,m;
         String oppFirst = null;
         String oppLast = null;
@@ -95,6 +94,7 @@ public class ScheduleFragment extends Fragment {
                     }
 
                 int[] scheduleA = {a,b,c,d,e,f,g,h,i,j,k,l,m};
+                String[] scheduleB = new String[13];
 
                 for(int i=0; i<13; i++) {
                     rs1 = null;
@@ -108,7 +108,7 @@ public class ScheduleFragment extends Fragment {
                             oppFirst = rs1.getString("FIRSTNAME");
                             oppLast = rs1.getString("LASTNAME");
                         }
-                    scheduleB[i] = ("Week " + (i+1) + " " + oppFirst + " " + oppLast);
+                    scheduleB[i] = ("Week " + (i+1) + ":       " + oppFirst + " " + oppLast);
                 }
 
                 return scheduleB;

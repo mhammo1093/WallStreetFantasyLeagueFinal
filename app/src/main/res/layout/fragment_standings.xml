@@ -4,249 +4,324 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.capstone.hammond.wallstreetfantasyleaguefinal.StandingsFragment">
+    tools:context="com.capstone.hammond.wallstreetfantasyleaguefinal.StandingsFragment"
+    android:id="@+id/layout">
 
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:text="Standings"
+    android:text="Players"
     android:id="@+id/textView12"
     android:layout_below="@+id/textView16"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
-        android:paddingBottom="10dp" />
+        android:paddingBottom="20dp" />
 
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:text="League Name"
+    android:text="Capstone League"
     android:id="@+id/textView16"
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
         android:paddingBottom="25dp" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="textPersonName"
     android:text="Name"
     android:ems="10"
     android:id="@+id/player1"
     android:layout_below="@+id/textView12"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
-    android:layout_toStartOf="@+id/textView16"
-    android:layout_toLeftOf="@+id/textView16"
-    android:layout_alignRight="@+id/player2"
-    android:layout_alignEnd="@+id/player2" />
+    android:layout_toStartOf="@+id/textView17"
+        android:layout_toLeftOf="@+id/textView17"
+        android:paddingBottom="25dp" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="textPersonName"
     android:text="Name"
     android:ems="10"
     android:id="@+id/player2"
     android:layout_below="@+id/player1"
     android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true" />
+    android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/player2_record"
+        android:layout_toStartOf="@+id/player2_record"
+        android:paddingBottom="25dp" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="textPersonName"
     android:text="Name"
     android:ems="10"
     android:id="@+id/player3"
     android:layout_below="@+id/player2"
     android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true" />
+    android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/player3_record"
+        android:layout_toStartOf="@+id/player3_record"
+        android:paddingBottom="25dp" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="textPersonName"
     android:text="Name"
     android:ems="10"
     android:id="@+id/player4"
     android:layout_below="@+id/player3"
     android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true" />
+    android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/player3_record"
+        android:layout_toStartOf="@+id/player3_record"
+        android:paddingBottom="25dp" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="textPersonName"
     android:text="Name"
     android:ems="10"
     android:id="@+id/player5"
     android:layout_below="@+id/player4"
     android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true" />
+    android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/player4_record"
+        android:layout_toStartOf="@+id/player4_record"
+        android:paddingBottom="25dp" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="textPersonName"
     android:text="Name"
     android:ems="10"
     android:id="@+id/player6"
     android:layout_below="@+id/player5"
     android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true" />
+    android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/player6_record"
+        android:layout_toStartOf="@+id/player6_record"
+        android:paddingBottom="25dp" />
 
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:text="Wins"
+    android:text="Record"
     android:id="@+id/textView17"
-    android:layout_above="@+id/player1"
-    android:layout_toRightOf="@+id/player1"
-    android:layout_toEndOf="@+id/player1"
-        android:paddingBottom="10dp" />
+        android:paddingBottom="20dp"
+        android:layout_below="@+id/textView16"
+        android:layout_centerHorizontal="true" />
 
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:text="Losses"
+    android:text="Win %"
     android:id="@+id/textView18"
     android:layout_above="@+id/player1"
     android:layout_alignParentRight="true"
     android:layout_alignParentEnd="true"
-        android:paddingBottom="10dp" />
+        android:paddingBottom="20dp" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="number"
     android:ems="10"
-    android:id="@+id/player1_win"
-    android:layout_below="@+id/textView17"
-    android:layout_alignLeft="@+id/textView17"
-    android:layout_alignStart="@+id/textView17"
-    android:layout_alignRight="@+id/textView17"
-    android:layout_alignEnd="@+id/textView17" />
+    android:id="@+id/player1_record"
+        android:layout_below="@+id/textView17"
+        android:layout_alignRight="@+id/textView17"
+        android:layout_alignEnd="@+id/textView17"
+        android:layout_alignLeft="@+id/textView17"
+        android:layout_alignStart="@+id/textView17"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="number"
     android:ems="10"
-    android:id="@+id/player2_win"
-    android:layout_below="@+id/player1_win"
-    android:layout_alignLeft="@+id/player1_win"
-    android:layout_alignStart="@+id/player1_win"
-    android:layout_alignRight="@+id/player1_win"
-    android:layout_alignEnd="@+id/player1_win" />
+    android:id="@+id/player2_record"
+        android:layout_below="@+id/player1_record"
+        android:layout_alignRight="@+id/player1_record"
+        android:layout_alignEnd="@+id/player1_record"
+        android:layout_alignLeft="@+id/player1_record"
+        android:layout_alignStart="@+id/player1_record"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="number"
     android:ems="10"
-    android:id="@+id/player3_win"
-    android:layout_below="@+id/player2"
-    android:layout_toRightOf="@+id/player2"
-    android:layout_alignRight="@+id/player2_win"
-    android:layout_alignEnd="@+id/player2_win" />
+    android:id="@+id/player3_record"
+        android:layout_below="@+id/player2_record"
+        android:layout_alignRight="@+id/player2_record"
+        android:layout_alignEnd="@+id/player2_record"
+        android:layout_toRightOf="@+id/player2"
+        android:layout_toEndOf="@+id/player2"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="number"
     android:ems="10"
-    android:id="@+id/player4_win"
-    android:layout_alignTop="@+id/player4"
-    android:layout_toRightOf="@+id/player4"
-    android:layout_alignRight="@+id/player3_win"
-    android:layout_alignEnd="@+id/player3_win" />
+    android:id="@+id/player4_record"
+        android:layout_below="@+id/player3_record"
+        android:layout_alignRight="@+id/player3_record"
+        android:layout_alignEnd="@+id/player3_record"
+        android:layout_toRightOf="@+id/player4"
+        android:layout_toEndOf="@+id/player4"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="number"
     android:ems="10"
-    android:id="@+id/player5_win"
-    android:layout_above="@+id/player6"
-    android:layout_toRightOf="@+id/player5"
-    android:layout_alignRight="@+id/player3_win"
-    android:layout_alignEnd="@+id/player3_win" />
+    android:id="@+id/player5_record"
+        android:layout_below="@+id/player4_record"
+        android:layout_alignRight="@+id/player4_record"
+        android:layout_alignEnd="@+id/player4_record"
+        android:layout_toRightOf="@+id/player4"
+        android:layout_toEndOf="@+id/player4"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="number"
     android:ems="10"
-    android:id="@+id/player1_loss"
-    android:layout_alignTop="@+id/player1_win"
+    android:id="@+id/player1_wperc"
+    android:layout_alignTop="@+id/player1_record"
     android:layout_alignLeft="@+id/textView18"
     android:layout_alignStart="@+id/textView18"
     android:layout_alignRight="@+id/textView18"
-    android:layout_alignEnd="@+id/textView18" />
+    android:layout_alignEnd="@+id/textView18"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="number"
     android:ems="10"
-    android:id="@+id/player2_loss"
-    android:layout_below="@+id/player1_loss"
-    android:layout_alignLeft="@+id/player1_loss"
-    android:layout_alignStart="@+id/player1_loss" />
+    android:id="@+id/player2_wperc"
+    android:layout_below="@+id/player1_wperc"
+    android:layout_alignLeft="@+id/player1_wperc"
+    android:layout_alignStart="@+id/player1_wperc"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="number"
     android:ems="10"
-    android:id="@+id/player3_loss"
+    android:id="@+id/player3_wperc"
     android:layout_above="@+id/player4"
-    android:layout_alignLeft="@+id/player2_loss"
-    android:layout_alignStart="@+id/player2_loss" />
+    android:layout_alignLeft="@+id/player2_wperc"
+    android:layout_alignStart="@+id/player2_wperc"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="number"
     android:ems="10"
-    android:id="@+id/player4_loss"
+    android:id="@+id/player4_wperc"
     android:layout_alignTop="@+id/player4"
-    android:layout_alignLeft="@+id/player3_loss"
-    android:layout_alignStart="@+id/player3_loss" />
+    android:layout_alignLeft="@+id/player3_wperc"
+    android:layout_alignStart="@+id/player3_wperc"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="number"
     android:ems="10"
-    android:id="@+id/player5_loss"
-    android:layout_below="@+id/player4_loss"
-    android:layout_alignLeft="@+id/player4_loss"
-    android:layout_alignStart="@+id/player4_loss" />
+    android:id="@+id/player5_wperc"
+    android:layout_below="@+id/player4_wperc"
+    android:layout_alignLeft="@+id/player4_wperc"
+    android:layout_alignStart="@+id/player4_wperc"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="number"
     android:ems="10"
-    android:id="@+id/player6_loss"
-        android:layout_below="@+id/player5_loss"
-        android:layout_alignLeft="@+id/player5_loss"
-        android:layout_alignStart="@+id/player5_loss" />
+    android:id="@+id/player6_wperc"
+        android:layout_below="@+id/player5_wperc"
+        android:layout_alignLeft="@+id/player5_wperc"
+        android:layout_alignStart="@+id/player5_wperc"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal" />
 
-    <EditText
+    <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="number"
     android:ems="10"
-    android:id="@+id/player6_win"
-    android:layout_alignBottom="@+id/player6"
-    android:layout_toRightOf="@+id/player5"
-    android:layout_alignRight="@+id/player5_win"
-    android:layout_alignEnd="@+id/player5_win" />
+    android:id="@+id/player6_record"
+        android:layout_below="@+id/player5_record"
+        android:layout_alignRight="@+id/player5_record"
+        android:layout_alignEnd="@+id/player5_record"
+        android:layout_toRightOf="@+id/player5"
+        android:layout_toEndOf="@+id/player5"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_above="@+id/player2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_above="@+id/player3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_above="@+id/player4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_above="@+id/player5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_above="@+id/player6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_marginTop="355dp" />
 
 </RelativeLayout>

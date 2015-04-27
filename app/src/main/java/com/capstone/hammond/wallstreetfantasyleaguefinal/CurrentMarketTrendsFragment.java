@@ -17,11 +17,14 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class CurrentMarketTrendsFragment extends Fragment {
+    private static final NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+
     TextView spPrice;
     TextView spPercent;
     TextView nasdaqPrice;
@@ -68,7 +71,7 @@ public class CurrentMarketTrendsFragment extends Fragment {
     }
 
     public void setResult(TextView textViewOne, TextView textViewTwo, String fstockSymbol, String stockPrice, String fstockChangePercentage) {
-        textViewOne.setText("$" + stockPrice);
+        textViewOne.setText(currencyFormat.format(Float.parseFloat(stockPrice)));
         textViewTwo.setText(fstockChangePercentage + "%");
         char c = fstockChangePercentage.charAt(0);
         if(c=='+') {
