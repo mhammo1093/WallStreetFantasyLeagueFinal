@@ -108,7 +108,7 @@ public class ScheduleFragment extends Fragment {
                             oppFirst = rs1.getString("FIRSTNAME");
                             oppLast = rs1.getString("LASTNAME");
                         }
-                    scheduleB[i] = ("Week " + (i+1) + ":       " + oppFirst + " " + oppLast);
+                    scheduleB[i] = ("Week " + (i+1) + ":       You vs. " + oppFirst + " " + oppLast);
                 }
 
                 return scheduleB;
