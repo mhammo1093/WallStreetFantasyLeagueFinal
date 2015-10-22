@@ -16,11 +16,11 @@
         android:id="@+id/imageView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#FFFFFF"
+        android:background="@drawable/layout_corners"
         android:layout_alignRight="@+id/userStocks"
         android:layout_alignEnd="@+id/userStocks"
-        android:layout_alignBottom="@+id/sellSharesAmount"
-        android:layout_alignTop="@+id/sellStock" />
+        android:layout_alignTop="@+id/sellStock"
+        android:layout_above="@+id/textView3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,7 +62,8 @@
         android:layout_alignStart="@+id/sellStockName"
         android:layout_below="@+id/sellStockName"
         android:hint="Enter Share Amt"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:paddingBottom="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -72,8 +73,7 @@
         android:id="@+id/sellStock"
         android:paddingTop="20dp"
         android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/bank"
-        android:layout_alignEnd="@+id/bank" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -90,9 +90,8 @@
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:id="@+id/userStocks"
-        android:background="#FFFFFF"
-        android:layout_marginBottom="15dp"
-        android:layout_above="@+id/imageView2"
+        android:background="@drawable/layout_corners"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

@@ -16,7 +16,7 @@
         android:layout_above="@+id/log_in"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#FFFFFF" />
+        android:background="@drawable/layout_corners" />
 
     <Button android:id="@+id/log_in"
         android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -31,16 +31,20 @@
         android:imeOptions="actionUnspecified" android:inputType="textPassword"
         android:maxLines="1" android:singleLine="true"
         android:layout_above="@+id/log_in"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignLeft="@+id/email"
+        android:layout_alignStart="@+id/email"
+        android:layout_alignRight="@+id/email"
+        android:layout_alignEnd="@+id/email" />
 
     <AutoCompleteTextView android:id="@+id/email" android:layout_width="match_parent"
         android:layout_height="wrap_content" android:hint="@string/prompt_email"
         android:inputType="textEmailAddress" android:maxLines="1"
         android:singleLine="true"
         android:layout_above="@+id/password"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/wallStreet"
+        android:layout_alignStart="@+id/wallStreet"
+        android:layout_alignRight="@+id/wallStreet"
+        android:layout_alignEnd="@+id/wallStreet" />
 
     <Button
         android:layout_width="wrap_content"

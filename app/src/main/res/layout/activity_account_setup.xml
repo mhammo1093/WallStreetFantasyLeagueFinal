@@ -4,7 +4,28 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".AccountSetupActivity">
+    tools:context=".AccountSetupActivity"
+    android:background="#8BC34A">
+
+    <ImageView
+        android:layout_width="375dp"
+        android:layout_height="70dp"
+        android:id="@+id/white_space"
+        android:layout_above="@+id/editText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/layout_corners"/>
+
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:id="@+id/white_space_2"
+        android:layout_above="@+id/button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/white_space"
+        android:background="@drawable/layout_corners"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -23,8 +44,11 @@
         android:ems="10"
         android:id="@+id/editText"
         android:layout_above="@+id/editText3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toLeftOf="@+id/editText2"
+        android:layout_toStartOf="@+id/editText2"
+        android:layout_marginRight="19dp"
+        android:layout_marginEnd="19dp"
+        android:paddingTop="10dp" />
 
     <EditText
         android:layout_width="150dp"
@@ -33,9 +57,12 @@
         android:hint="Last name"
         android:ems="10"
         android:id="@+id/editText2"
-        android:layout_alignTop="@+id/editText"
-        android:layout_toRightOf="@+id/editText"
-        android:layout_toEndOf="@+id/editText" />
+        android:layout_below="@+id/textView2"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_marginRight="21dp"
+        android:layout_marginEnd="21dp"
+        android:paddingTop="10dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -45,8 +72,10 @@
         android:id="@+id/editText3"
         android:hint="Email"
         android:layout_above="@+id/editText4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_alignEnd="@+id/editText2" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -56,8 +85,10 @@
         android:id="@+id/editText4"
         android:hint="Confirm email"
         android:layout_above="@+id/editText5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/editText3"
+        android:layout_alignStart="@+id/editText3"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_alignEnd="@+id/editText2" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -66,10 +97,10 @@
         android:hint="New password"
         android:inputType="textPassword"
         android:layout_above="@+id/editText6"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/editText6"
-        android:layout_alignEnd="@+id/editText6" />
+        android:layout_alignRight="@+id/editText4"
+        android:layout_alignEnd="@+id/editText4"
+        android:layout_alignLeft="@+id/editText4"
+        android:layout_alignStart="@+id/editText4" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -78,8 +109,10 @@
         android:inputType="textPassword"
         android:hint="Confirm password"
         android:layout_above="@+id/button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignRight="@+id/editText5"
+        android:layout_alignEnd="@+id/editText5"
+        android:layout_alignLeft="@+id/editText5"
+        android:layout_alignStart="@+id/editText5" />
 
     <Button
         android:layout_width="wrap_content"
@@ -98,8 +131,11 @@
         android:text="Welcome to Wall Street Fantasy League. Please enter the following information so we can create an account for you."
         android:id="@+id/textView2"
         android:textSize="15dp"
-        android:layout_marginBottom="39dp"
+        android:layout_marginBottom="61dp"
         android:layout_above="@+id/editText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
 </RelativeLayout>
