@@ -12,10 +12,10 @@ import java.sql.SQLException;
 public class ConnectionManager {
 
 
-    private static String url = "jdbc:oracle:thin:@141.216.24.31:1521:fsdb";
+    private static String url = "jdbc:oracle:thin:@141.216.24.135:1521:fsdb";
     private static String driverName = "oracle.jdbc.driver.OracleDriver";
     private static String username = "fsuser";
-    private static String password = "fsuser";
+    private static String password = "mich123";
     private static Connection con;
 
 
