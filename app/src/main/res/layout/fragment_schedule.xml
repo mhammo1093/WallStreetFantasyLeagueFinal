@@ -8,12 +8,14 @@
     android:background="#8BC34A">
 
     <ListView
-        android:layout_width="310dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:id="@+id/scheduleList"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/layout_corners" />
+        android:background="@drawable/layout_corners"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
 
 
 </RelativeLayout>

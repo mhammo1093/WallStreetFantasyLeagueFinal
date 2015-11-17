@@ -50,7 +50,9 @@
         android:hint="Enter Tick Symbol"
         android:gravity="center_horizontal"
         android:layout_below="@+id/bank"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:capitalize="characters"
+        android:maxLines="1" android:singleLine="true"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -63,7 +65,8 @@
         android:layout_below="@+id/sellStockName"
         android:hint="Enter Share Amt"
         android:gravity="center_horizontal"
-        android:paddingBottom="15dp" />
+        android:paddingBottom="15dp"
+        android:maxLines="1" android:singleLine="true"/>
 
     <TextView
         android:layout_width="wrap_content"

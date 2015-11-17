@@ -2,9 +2,19 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.capstone.hammond.wallstreetfantasyleaguefinal.AccountFragment"
-    android:title="Account">
+    android:title="Account"
+    android:background="#8BC34A">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:layout_width="325dp"
+        android:layout_height="320dp"
+        android:id="@+id/white_space"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/layout_corners"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,7 +68,6 @@
         android:layout_above="@+id/user_name"
         android:layout_centerHorizontal="true"
         android:background="#ffffffff"
-        android:elevation="5dp"
         android:minHeight="96dp"
         android:minWidth="96dp" />
 
