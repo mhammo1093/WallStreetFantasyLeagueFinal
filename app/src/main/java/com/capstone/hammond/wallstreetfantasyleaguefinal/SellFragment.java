@@ -167,7 +167,7 @@ public class SellFragment extends Fragment {
                 if (conn != null)
                     st = conn.createStatement();
                 if (st != null)
-                    rs = st.executeQuery("SELECT * FROM L1_STOCKS WHERE USERID = '" + UserLoginInfo.userID + "'");
+                    rs = st.executeQuery("SELECT * FROM L" + UserLoginInfo.leagueNum + "_STOCKS WHERE USERID = '" + UserLoginInfo.userID + "'");
                 if (rs != null)
                     while(rs.next()) {
                         String tick = (rs.getString("TICKER_SYMBOL"));
@@ -233,17 +233,23 @@ public class SellFragment extends Fragment {
                 if (conn != null)
                     st = conn.createStatement();
                 if (st != null)
-                    rs = st.executeQuery("SELECT * FROM L1_STOCKS WHERE USERID ='" + UserLoginInfo.userID + "' AND TICKER_SYMBOL='" + tick + "'");
+                    rs = st.executeQuery("SELECT * FROM L" + UserLoginInfo.leagueNum + "_STOCKS WHERE USERID ='" + UserLoginInfo.userID + "' AND TICKER_SYMBOL='" + tick + "'");
                 if (rs != null)
                     while (rs.next()) {
                         temp = Float.parseFloat(rs.getString("NUM_SHARES"));
                     }
 
+                String statement1 = "UPDATE L" + UserLoginInfo.leagueNum + "_Standings SET BANK = '" + newBank + "' WHERE EMAIL = '" + UserLoginInfo.userEmail + "'";
+
                 newShareNum = temp - (Float.parseFloat(shares));
 
-                String statement1 = "UPDATE L1_Standings SET BANK = '" + newBank + "' WHERE EMAIL = '" + UserLoginInfo.userEmail + "'";
+                String statement2 = null;
 
-                String statement2 = "UPDATE L1_STOCKS SET NUM_SHARES =" + newShareNum + " WHERE TICKER_SYMBOL='" + tick + "' AND USERID=" + UserLoginInfo.userID;
+                if(newShareNum==0) {
+                    statement2 = "DELETE FROM L" + UserLoginInfo.leagueNum + "_STOCKS WHERE TICKER_SYMBOL='" + tick + "'";
+                } else {
+                    statement2 = "UPDATE L" + UserLoginInfo.leagueNum + "_STOCKS SET NUM_SHARES =" + newShareNum + " WHERE TICKER_SYMBOL='" + tick + "' AND USERID=" + UserLoginInfo.userID;
+                }
 
                 conn = ConnectionManager.getConnection();
                 statement_1 = conn.createStatement();
@@ -288,7 +294,7 @@ public class SellFragment extends Fragment {
                 if (conn != null)
                     st = conn.createStatement();
                 if (st != null)
-                    rs = st.executeQuery("SELECT * FROM L1_STOCKS WHERE USERID ='" + UserLoginInfo.userID + "' AND TICKER_SYMBOL='" + ticker + "'");
+                    rs = st.executeQuery("SELECT * FROM L" + UserLoginInfo.leagueNum + "_STOCKS WHERE USERID ='" + UserLoginInfo.userID + "' AND TICKER_SYMBOL='" + ticker + "'");
                 if (rs != null)
                     while (rs.next()) {
                         nShares = (rs.getString("NUM_SHARES"));

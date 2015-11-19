@@ -277,6 +277,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                                 UserLoginInfo.fName = resultSet.getString("firstname");
                                 UserLoginInfo.lName = resultSet.getString("lastname");
                                 UserLoginInfo.userID = resultSet.getString("userid");
+                                UserLoginInfo.leagueNum = resultSet.getString("league_num");
                                 return (true);
                             } else
                                 return (false);

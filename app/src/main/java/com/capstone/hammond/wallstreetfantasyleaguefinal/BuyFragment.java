@@ -208,9 +208,9 @@ public class BuyFragment extends Fragment {
 
             try {
 
-                String statement1 = "UPDATE L1_Standings SET BANK = '" + newBank + "' WHERE EMAIL = '" + UserLoginInfo.userEmail + "'";
+                String statement1 = "UPDATE L" + UserLoginInfo.leagueNum + "_STANDINGS SET BANK = '" + newBank + "' WHERE EMAIL = '" + UserLoginInfo.userEmail + "'";
 
-                String statement2 = "INSERT INTO L1_STOCKS(userid,email,ticker_symbol,num_shares) VALUES" +
+                String statement2 = "INSERT INTO L" + UserLoginInfo.leagueNum + "_STOCKS(userid,email,ticker_symbol,num_shares) VALUES" +
                         " (" + UserLoginInfo.userID + ",'" + UserLoginInfo.userEmail + "','" + tick +
                         "'," + shares + ")";
 
@@ -276,9 +276,9 @@ public class BuyFragment extends Fragment {
 
                 newShareNum = temp + (Float.parseFloat(shares));
 
-                String statement1 = "UPDATE L1_Standings SET BANK = '" + newBank + "' WHERE EMAIL = '" + UserLoginInfo.userEmail + "'";
+                String statement1 = "UPDATE L" + UserLoginInfo.leagueNum + "_STANDINGS SET BANK = '" + newBank + "' WHERE EMAIL = '" + UserLoginInfo.userEmail + "'";
 
-                String statement2 = "UPDATE L1_STOCKS SET NUM_SHARES=" + newShareNum + "WHERE TICKER_SYMBOL='" + tick + "'";
+                String statement2 = "UPDATE L" + UserLoginInfo.leagueNum + "_STOCKS SET NUM_SHARES=" + newShareNum + "WHERE TICKER_SYMBOL='" + tick + "'";
 
                 statement_1 = conn.createStatement();
                 statement_2 = conn.createStatement();
@@ -317,7 +317,7 @@ public class BuyFragment extends Fragment {
                 if (conn != null)
                     st = conn.createStatement();
                 if (st != null)
-                    rs = st.executeQuery("SELECT * FROM L1_STANDINGS WHERE USERID ='" + UserLoginInfo.userID + "'");
+                    rs = st.executeQuery("SELECT * FROM L" + UserLoginInfo.leagueNum + "_STANDINGS WHERE USERID ='" + UserLoginInfo.userID + "'");
                 if (rs != null)
                     while (rs.next()) {
                         bankString = rs.getString("BANK");
@@ -365,7 +365,7 @@ public class BuyFragment extends Fragment {
                 if (conn != null)
                     st = conn.createStatement();
                 if (st != null)
-                    rs = st.executeQuery("SELECT * FROM L1_STOCKS WHERE USERID ='" + UserLoginInfo.userID + "' AND TICKER_SYMBOL='" + ticker + "'");
+                    rs = st.executeQuery("SELECT * FROM L" + UserLoginInfo.leagueNum + "_STOCKS WHERE USERID ='" + UserLoginInfo.userID + "' AND TICKER_SYMBOL='" + ticker + "'");
                 if (rs != null)
                     while (rs.next()) {
                         list.add(rs.getString("TICKER_SYMBOL"));

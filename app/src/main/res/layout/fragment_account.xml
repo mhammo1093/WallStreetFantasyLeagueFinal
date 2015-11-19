@@ -11,10 +11,10 @@
         android:layout_width="325dp"
         android:layout_height="320dp"
         android:id="@+id/white_space"
-        android:layout_above="@+id/button2"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/layout_corners"/>
+        android:background="@drawable/layout_corners"
+        android:layout_above="@+id/button2"
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:layout_width="wrap_content"
